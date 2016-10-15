@@ -28,6 +28,7 @@ public class User implements Serializable{
 	private long id_user;
 
 	private String nom;
+	private String prenom;
 	
 	@Temporal(TemporalType.DATE)		
 	private Date dN;
@@ -79,12 +80,7 @@ public class User implements Serializable{
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public Date getDN() {
-		return dN;
-	}
-	public void setDN(Date dN) {
-		this.dN = dN;
-	}
+
 	public Agent getAgent() {
 		return agent;
 	}
@@ -92,6 +88,18 @@ public class User implements Serializable{
 		this.agent = agent;
 	}
 	
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public Date getdN() {
+		return dN;
+	}
+	public void setdN(Date dN) {
+		this.dN = dN;
+	}
 	// ToString ---------------------------------------------------------------------------------------------
 	@Override
 	public String toString() {

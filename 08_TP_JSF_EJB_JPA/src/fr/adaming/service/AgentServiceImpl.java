@@ -15,7 +15,7 @@ public class AgentServiceImpl implements IAgentService{
 	IAgentDao agentDao;
 	@Override
 	public List<Agent> isExistService(String login, String password) {
-		List<Agent> liste=agentDao.isExist(login, password);
+		List<Agent> liste=agentDao.isExistDao(login, password);
 		return liste;
 	}
 

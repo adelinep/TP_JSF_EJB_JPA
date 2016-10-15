@@ -12,10 +12,60 @@
 </h:head>
 
 <ui:insert>
-<ui:include src="/Templates/Menu.xhtml" />
+	<ui:include src="/Templates/Menu.xhtml" />
 </ui:insert>
 
 <h:body>
-<h1 style="text-align: center;">Liste des utilisateurs</h1>
+	<h1 style="text-align: center;">Liste des utilisateurs</h1>
+
+	<p:dataTable var="user" value="#{agentMB.listeUser}" rows="10"
+		paginator="true"
+		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		rowsPerPageTemplate="5,10,15">
+		<p:column headerText="Id">
+			<h:outputText value="#{user.id_user}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:form>
+				<h:outputLabel for="ajax" />
+				<p:inplace id="ajax" editor="true">
+					<p:inputText value="#{user.nom}" required="true" label="text" />
+				</p:inplace>
+			</h:form>
+		</p:column>
+
+		<p:column headerText="Prénom">
+			<h:form>
+				<h:outputLabel for="ajax" />
+				<p:inplace id="ajax" editor="true">
+					<p:inputText value="#{user.prenom}" required="true" label="text" />
+				</p:inplace>
+			</h:form>
+		</p:column>
+
+		<p:column headerText="Date de Naissance">
+			<h:form>
+				<p:outputLabel for="birthDate" value="Date de naissance :" />
+				<p:calendar id="birthDate" value="#{user.dN}" />
+			</h:form>
+		</p:column>
+
+
+		<p:column headerText="Supprimer/Modifier" style="width:100px">
+			<h:form>
+				<p:commandButton update="@all" title="Modifier"
+					action="#{userMB.modifier}" icon="ui-icon-pencil">
+					<f:setPropertyActionListener value="#{user}"
+						target="#{userMB.user}"></f:setPropertyActionListener>
+				</p:commandButton>
+				<p:commandButton update="@all" title="Supprimer"
+					icon="ui-icon-trash" action="#{userMB.supprimer}">
+					<f:setPropertyActionListener value="#{user}"
+						target="#{userMB.user}" />
+				</p:commandButton>
+			</h:form>
+		</p:column>
+	</p:dataTable>
 </h:body>
 </html>

@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import fr.adaming.model.Agent;
+import fr.adaming.model.User;
 import fr.adaming.service.IAgentService;
 
 
@@ -25,6 +26,8 @@ public class AgentManagedBean implements Serializable{
 	private String mail;
 	private String password;
 	private Agent agent;
+	
+	private List<User> listeUser;
 	
 	@EJB
 	IAgentService agentService;
@@ -63,8 +66,14 @@ public class AgentManagedBean implements Serializable{
 		this.agent = agent;
 	}
 	
-	// Méthods métiers
+	public List<User> getListeUser() {
+		return listeUser;
+	}
+	public void setListeUser(List<User> listeUser) {
+		this.listeUser = listeUser;
+	}
 	
+	// Méthods métiers
 	public String isExist(){
 		
 		List<Agent> listeAgents=agentService.isExistService(mail, password);

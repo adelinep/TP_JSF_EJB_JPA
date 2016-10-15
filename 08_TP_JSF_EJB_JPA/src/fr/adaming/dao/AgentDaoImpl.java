@@ -15,7 +15,7 @@ public class AgentDaoImpl implements IAgentDao{
 	EntityManager em;
 
 	@Override
-	public List<Agent> isExist(String login, String password) {
+	public List<Agent> isExistDao(String login, String password) {
 		
 		
 		String req = "SELECT a from Agent a WHERE a.login=:log AND a.password=:pass";

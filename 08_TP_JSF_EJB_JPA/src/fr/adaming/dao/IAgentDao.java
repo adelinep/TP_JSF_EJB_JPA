@@ -9,6 +9,6 @@ import fr.adaming.model.Agent;
 @Local
 public interface IAgentDao {
 	
-	public List<Agent> isExist(String login, String password);
+	public List<Agent> isExistDao(String login, String password);
 	
 }

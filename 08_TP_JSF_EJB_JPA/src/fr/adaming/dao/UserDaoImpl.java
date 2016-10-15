@@ -16,20 +16,20 @@ public class UserDaoImpl implements IUserDao{
 	EntityManager em;
 
 	@Override
-	public void ajouter(User us) {
+	public void addUserDao(User us) {
 		em.persist(us);
 		
 	}
 
 	@Override
-	public void update(User us) {
+	public void updateUserDao(User us) {
 		User us2 = em.find(User.class, us.getId_user());
 		us2=us;
 		em.merge(us2);	
 	}
 
 	@Override
-	public void supprimerDao(User us) {
+	public void deleteUserDao(User us) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -41,13 +41,13 @@ public class UserDaoImpl implements IUserDao{
 	}
 
 	@Override
-	public User getById(long id) {
+	public User getUserByIdDao(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> getByAgent(Agent a) {
+	public List<User> getUserByAgentDao(Agent a) {
 		// TODO Auto-generated method stub
 		return null;
 	}
