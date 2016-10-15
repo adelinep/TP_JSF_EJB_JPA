@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <f:view locale="#{languageBean.local}"></f:view>
 <h:head>
@@ -37,20 +38,15 @@
 		<br />
 		<br />
 		
-#{msg.mail} :	<h:inputText id="mailId" value="#{userBean.user.mail}"
-			required="true" label="Mail">
-			<f:validator validatorId="validatorMail"></f:validator>
-		</h:inputText>
-		<h:message for="mailId" style="color:red"></h:message>
+#{msg.dN} :				<h:form>
+				<p:outputLabel for="birthDate" value="Date de naissance :" />
+				<p:calendar id="birthDate" value="#{user.dN}" />
+			</h:form>
+		<h:message for="dateId" style="color:red"></h:message>
 		<br />
 		<br />
 		
-#{msg.password} :	<h:inputText id="passwordId" value="#{userBean.user.password}"
-			required="true" label="Password">
-		</h:inputText>
-		<h:message for="passwordId" style="color:red"></h:message>
-		<br />
-		<br />
+
 		
 				<h:commandButton action="#{userBean.addUser}" value="#{msg.addUser}"></h:commandButton>
 	</h:form>
