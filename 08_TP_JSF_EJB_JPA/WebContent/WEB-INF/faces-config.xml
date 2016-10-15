@@ -16,5 +16,18 @@
   <validator-id>validatorPers</validator-id>
   <validator-class>fr.adaming.validator.ValidatorMail</validator-class>
  </validator>
- <application/>
+ 
+ 	<application>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+
+		<locale-config>
+			<default-locale>fr_FR</default-locale>
+			<supported-locale>en_US</supported-locale>
+		</locale-config>
+	</application>
+
+ 
 </faces-config>
