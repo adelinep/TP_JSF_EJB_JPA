@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Authentification</title>
+</h:head>
+
+<h:body>
+	<h2 style="text-align: center;">Authentification</h2>
+	<div align="center">
+		<h:form>
+		<h:panelGrid columns="3"></h:panelGrid>
+Mail :	<h:inputText id="mailId" value="#{agentMB.mail}" required="true"
+				label="Mail">
+			</h:inputText>
+			<h:message for="mailId" style="color:red"></h:message>
+			<br />
+			<br />
+Mot de passe : <h:inputSecret id="passwordId" value="#{agentMB.password}" required="true"/>
+			<h:message for="Password" style="color:red"></h:message>
+			<br />
+
+			<h:commandButton action="#{agentMB.isExist}" value="Connexion"></h:commandButton>
+		</h:form>
+	</div>
+</h:body>
+
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view locale="#{languageBean.local}"></f:view>
+<h:head>
+	<title>#{msg.updateUser}</title>
+</h:head>
+
+<h:body>
+	<ui:insert name="page">
+
+		<ui:include src="/template/Menu.xhtml"></ui:include>
+
+	</ui:insert>
+
+
+	<h1 style="text-align: center;">#{msg.updateUser}</h1>
+
+
+	<h:form>
+	
+#{msg.id} :	<h:inputText id="IdId" value="#{userBean.user.id_user}"
+			required="true" label="Nom">
+		</h:inputText>
+		<h:message for="nomId" style="color:red"></h:message>
+		<br />
+		<br />
+	
+#{msg.name} :	<h:inputText id="nomId" value="#{userBean.user.nom}"
+			required="true" label="Nom">
+		</h:inputText>
+		<h:message for="nomId" style="color:red"></h:message>
+		<br />
+		<br />
+#{msg.surname} :	<h:inputText id="prenomId"
+			value="#{userBean.user.prenom}" required="true" label="Prenom">
+		</h:inputText>
+		<h:message for="prenomId" style="color:red"></h:message>
+		<br />
+		<br />
+		
+#{msg.mail} :	<h:inputText id="mailId" value="#{userBean.user.mail}"
+			required="true" label="Mail">
+			<f:validator validatorId="validatorMail"></f:validator>
+		</h:inputText>
+		<h:message for="mailId" style="color:red"></h:message>
+		<br />
+		<br />
+		
+#{msg.password} :	<h:inputText id="passwordId"
+			value="#{userBean.user.password}" required="true" label="Password">
+		</h:inputText>
+		<h:message for="passwordId" style="color:red"></h:message>
+		<br />
+		<br />
+
+		<h:commandButton action="#{userBean.updateUser}"
+			value="#{msg.updateUser}"></h:commandButton>
+	</h:form>
+
+</h:body>
+</html>
