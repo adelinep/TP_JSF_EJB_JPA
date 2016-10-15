@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+	<ui:composition>
+
+		<h:form>
+
+			<p:growl id="message" showDetail="true" />
+			<p:tabMenu activeIndex="#{param.i}">
+				<p:menuitem value="Accueil" action="accueil" icon="ui-icon-star">
+					<f:param name="i" value="0" />
+				</p:menuitem>
+				<p:menuitem value="Ajouter" action="ajouter" icon="ui-icon-document">
+					<f:param name="i" value="1" />
+				</p:menuitem>
+				<p:menuitem value="Supprimer" action="supprimer"
+					icon="ui-icon-close">
+					<f:param name="i" value="2" />
+				</p:menuitem>
+				<p:menuitem value="Modifier" action="modifier" icon="ui-icon-pencil">
+					<f:param name="i" value="3" />
+				</p:menuitem>
+				<p:menuitem>
+				<p:commandButton value="Deconnexion"
+					action="index.xhtml" update="message">
+					<p:confirm header="Confirmation" message="Etes vous sur ?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Oui" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Non" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+				</p:menuitem>
+			</p:tabMenu>
+		</h:form>
+	</ui:composition>
+</h:body>
+</html>
