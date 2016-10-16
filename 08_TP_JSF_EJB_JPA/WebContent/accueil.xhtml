@@ -16,7 +16,7 @@
 </ui:insert>
 
 <h:body>
-	<h1 style="text-align: center;">Liste des utilisateurs</h1>
+	<h1 style="text-align: center;">#{msg.userList}</h1>
 
 	<p:dataTable var="user" value="#{agentMB.listeUser}" rows="10"
 		paginator="true"
@@ -27,15 +27,46 @@
 		</p:column>
 
 		<p:column headerText="#{msg.lastName}">
-			<h:outputText value="#{user.nom}" />
+			<h:form>
+				<h:outputLabel for="ajax" />
+				<p:inplace id="ajax" editor="true">
+					<p:inputText value="#{user.nom}" required="true" label="text" />
+				</p:inplace>
+			</h:form>
 		</p:column>
 
 		<p:column headerText="#{msg.firstName}">
-			<h:outputText value="#{user.prenom}" />
+			<h:form>
+				<h:outputLabel for="ajax" />
+				<p:inplace id="ajax" editor="true">
+					<p:inputText value="#{user.prenom}" required="true" label="text" />
+				</p:inplace>
+			</h:form>
 		</p:column>
 
 		<p:column headerText="#{msg.dN}">
-			<h:outputText value="#{user.dN}" />
+			<h:form>
+				<h:outputLabel for="ajax" />
+				<p:inplace id="ajax" editor="true">
+					<p:calendar value="#{user.dN}" required="true" label="text"
+						pattern="yyyy-mm-dd" />
+				</p:inplace>
+			</h:form>
+		</p:column>
+
+		<p:column headerText="#{msg.upd_del}" style="width:100px">
+			<h:form>
+				<p:commandButton update="@all" title="Modifier"
+					action="#{userMB.updateUser}" icon="ui-icon-pencil">
+					<f:setPropertyActionListener value="#{user}"
+						target="#{userMB.user}"></f:setPropertyActionListener>
+				</p:commandButton>
+				<p:commandButton update="@all" title="Supprimer"
+					icon="ui-icon-trash" action="#{userMB.deleteUser}">
+					<f:setPropertyActionListener value="#{user}"
+						target="#{userMB.user}" />
+				</p:commandButton>
+			</h:form>
 		</p:column>
 	</p:dataTable>
 </h:body>

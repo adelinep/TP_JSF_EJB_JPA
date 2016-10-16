@@ -18,34 +18,42 @@
 
 			<p:growl id="message" showDetail="true" />
 			<p:tabMenu activeIndex="#{param.i}">
-				<p:menuitem value="Accueil" action="accueil" icon="ui-icon-star">
+				<p:menuitem value="#{msg.home}" action="accueil" icon="ui-icon-star">
 					<f:param name="i" value="0" />
 				</p:menuitem>
-				<p:menuitem value="Ajouter" action="ajouter" icon="ui-icon-document">
+				<p:menuitem value="#{msg.add}" action="ajouter" icon="ui-icon-document">
 					<f:param name="i" value="1" />
 				</p:menuitem>
-				<p:menuitem value="Supprimer" action="supprimer"
+				<p:menuitem value="#{msg.delete}" action="supprimer"
 					icon="ui-icon-close">
 					<f:param name="i" value="2" />
 				</p:menuitem>
-				<p:menuitem value="Modifier" action="modifier" icon="ui-icon-pencil">
+				<p:menuitem value="#{msg.update}" action="modifier" icon="ui-icon-pencil">
 					<f:param name="i" value="3" />
 				</p:menuitem>
 				<p:menuitem>
-				<p:commandButton value="Deconnexion"
-					action="index.xhtml" update="message">
-					<p:confirm header="Confirmation" message="Etes vous sur ?"
-						icon="ui-icon-alert" />
-				</p:commandButton>
+					<p:commandButton value="#{msg.log_out}" action="#{agentMB.deconnexion}"
+						update="message">
+						<p:confirm header="#{msg.confirm}" message="#{msg.sur}"
+							icon="ui-icon-alert" />
+					</p:commandButton>
 
-				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-					<p:commandButton value="Oui" type="button"
-						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-					<p:commandButton value="Non" type="button"
-						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-				</p:confirmDialog>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="#{msg.yes}" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="#{msg.no}" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
 				</p:menuitem>
 			</p:tabMenu>
+
+			<h:form>
+				<h:outputText value="#{msg.lang}"></h:outputText>
+				<h:selectOneMenu value="#{interBean.localCode}" onchange="submit()"
+					valueChangeListener="#{interBean.changerLocalite}">
+					<f:selectItems value="#{interBean.localites}" />
+				</h:selectOneMenu>
+			</h:form>
 		</h:form>
 	</ui:composition>
 </h:body>

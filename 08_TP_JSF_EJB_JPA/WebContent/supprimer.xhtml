@@ -5,9 +5,9 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui">
 
-<f:view locale="#{languageBean.local}"></f:view>
+<f:view locale="#{interBean.local}"></f:view>
 <h:head>
 	<title>#{msg.deleteUser}</title>
 </h:head>
@@ -42,26 +42,25 @@
 
 		<h:form>
 			<p:dataTable var="user" value="#{userMB.user}">
-				<p:column headerText="Id">
+				<p:column headerText="#{msg.id}">
 					<h:outputText value="#{user.id_user}" />
 				</p:column>
 
-				<p:column headerText="Nom">
+				<p:column headerText="#{msg.lastName}">
 					<h:outputText value="#{user.nom}" />
 				</p:column>
 
-				<p:column headerText="Prénom">
+				<p:column headerText="#{msg.firstName}">
 					<h:outputText value="#{user.prenom}" />
 				</p:column>
 
-
-				<p:column headerText="dN">
+				<p:column headerText="#{msg.dN}">
 					<h:outputText value="#{user.dN}" />
 				</p:column>
 			</p:dataTable>
 
 			<br />
-			<h:commandButton value="Supprimer" action="#{userMB.deleteUser}"></h:commandButton>
+			<h:commandButton value="#{msg.delete}" action="#{userMB.deleteUser}"/>
 
 		</h:form>
 
