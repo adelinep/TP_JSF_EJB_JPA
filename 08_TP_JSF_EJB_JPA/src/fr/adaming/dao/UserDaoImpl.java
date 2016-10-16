@@ -25,13 +25,16 @@ public class UserDaoImpl implements IUserDao{
 	@Override
 	public void updateUserDao(User us) {
 		User us2 = em.find(User.class, us.getId_user());
-		us2=us;
+		us2.setNom(us.getNom());
+		us2.setPrenom(us.getPrenom());
+		us2.setdN(us.getdN());
 		em.merge(us2);	
 	}
 
 	@Override
 	public void deleteUserDao(User us) {
-		em.remove(us);
+		User u = em.find(User.class, us.getId_user());
+		em.remove(u);
 	}
 
 	@Override

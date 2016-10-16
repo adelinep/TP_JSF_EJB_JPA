@@ -8,10 +8,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import fr.adaming.model.Agent;
 import fr.adaming.model.User;
 import fr.adaming.service.IAgentService;
+import fr.adaming.service.IUserService;
 
 
 @ManagedBean(name="agentMB")
@@ -23,6 +25,7 @@ public class AgentManagedBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	// Attributs --------------------------------------------------------------------------------------------
 	private String mail;
 	private String password;
 	private Agent agent;
@@ -31,22 +34,21 @@ public class AgentManagedBean implements Serializable{
 	
 	@EJB
 	IAgentService agentService;
+	
+	@EJB
+	IUserService userService;
+	
+	HttpSession session;
+	
+	// Constructeur vide ---------------------------------------------------------------------------
 	/**
 	 * 
 	 */
 	public AgentManagedBean() {
 		super();
 	}
-	/**
-	 * @param mail
-	 * @param password
-	 */
-	public AgentManagedBean(String mail, String password) {
-		super();
-		this.mail = mail;
-		this.password = password;
-	}
-	
+
+	// Getters & Setters -------------------------------------------------------------------------------------------
 	public String getMail() {
 		return mail;
 	}
@@ -73,20 +75,29 @@ public class AgentManagedBean implements Serializable{
 		this.listeUser = listeUser;
 	}
 	
-	// Méthods métiers
+	// Méthodes métiers -----------------------------------------------------------------------------------
 	public String isExist(){
 		
 		List<Agent> listeAgents=agentService.isExistService(mail, password);
 		
 		if (listeAgents.size()==1){
 			agent=listeAgents.get(0);
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("agent", agent);
+			
+			session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			session.setAttribute("agent", agent);
 			return "sucess";
 		}
 		else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Le login ou le mot de passe ne sont pas dans la base de données."));
 			return "fail";
 		}
+	}
+	
+	
+	public String deconnexion(){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		
+		return "index.xhtml";
 	}
 
 }

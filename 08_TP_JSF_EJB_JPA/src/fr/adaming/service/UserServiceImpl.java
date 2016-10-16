@@ -3,51 +3,45 @@ package fr.adaming.service;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
-
+import javax.ejb.Stateful;
+import fr.adaming.dao.IUserDao;
 import fr.adaming.model.Agent;
 import fr.adaming.model.User;
 
-@Stateless
+@Stateful
 public class UserServiceImpl implements IUserService {
 
 	@EJB
-	IUserService userService;
+	IUserDao userDao;
 	
 	@Override
 	public void addUserService(User us) {
-		// TODO Auto-generated method stub
-		
+		userDao.addUserDao(us);
 	}
 
 	@Override
 	public void updateUserService(User us) {
-		// TODO Auto-generated method stub
-		
+		userDao.updateUserDao(us);
 	}
 
 	@Override
 	public void deleteUserService(User us) {
-		// TODO Auto-generated method stub
-		
+		userDao.deleteUserDao(us);
 	}
 
 	@Override
 	public List<User> getAllUserService() {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.getAllUserDao();
 	}
 
 	@Override
 	public User getUserByIdService(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.getUserByIdDao(id);
 	}
 
 	@Override
 	public List<User> getUserByAgentService(Agent a) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.getUserByAgentDao(a);
 	}
 
 }

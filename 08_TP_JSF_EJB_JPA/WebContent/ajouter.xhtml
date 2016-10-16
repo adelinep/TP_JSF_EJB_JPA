@@ -18,37 +18,29 @@
 		<ui:include src="/Templates/Menu.xhtml"></ui:include>
 
 	</ui:insert>
-
-
-	<h1 style="text-align: center;">#{msg.addUser}</h1>
-
-
+	<h1 style="text-align: center">#{msg.addUser}</h1>
 	<h:form>
-	
-#{msg.lastName} :	<h:inputText id="nomId" value="#{userBean.user.nom}"
-			required="true" label="Nom">
-		</h:inputText>
-		<h:message for="nomId" style="color:red"></h:message>
-		<br />
-		<br />
-#{msg.firstName} :	<h:inputText id="prenomId" value="#{userBean.user.prenom}"
-			required="true" label="Prenom">
-		</h:inputText>
-		<h:message for="prenomId" style="color:red"></h:message>
-		<br />
-		<br />
+		<h:panelGrid columns="2">
+#{msg.lastName} :	<h:inputText id="nomId" value="#{userMB.user.nom}"
+				required="true" label="Nom">
+			</h:inputText>
+			<br />
+			<br />
+#{msg.firstName} :	<h:inputText id="prenomId"
+				value="#{userMB.user.prenom}" required="true" label="Prenom">
+			</h:inputText>
+			<br />
+			<br />
 		
-#{msg.dN} :				<h:form>
-				<p:outputLabel for="birthDate" value="Date de naissance :" />
-				<p:calendar id="birthDate" value="#{user.dN}" />
+#{msg.dN} :				
+		<h:form>
+				<p:outputLabel for="birthDate" />
+				<p:calendar id="birthDate" value="#{userMB.user.dN}" />
 			</h:form>
-		<h:message for="dateId" style="color:red"></h:message>
-		<br />
-		<br />
-		
-
-		
-				<h:commandButton action="#{userBean.addUser}" value="#{msg.addUser}"></h:commandButton>
+			<br />
+			<br />
+			<h:commandButton action="#{userMB.addUser}" value="#{msg.addUser}"></h:commandButton>
+		</h:panelGrid>
 	</h:form>
 
 </h:body>

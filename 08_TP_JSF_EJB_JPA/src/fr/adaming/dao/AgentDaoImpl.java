@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import fr.adaming.model.Agent;
 
-@Stateless				// DAO toujours en stateless
+@Stateless				
 public class AgentDaoImpl implements IAgentDao{
 	
 	@PersistenceContext(unitName="PU")

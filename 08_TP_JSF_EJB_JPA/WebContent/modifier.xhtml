@@ -21,47 +21,52 @@
 
 	<h1 style="text-align: center;">#{msg.updateUser}</h1>
 
+	<div align="center">
+		<h:form>
 
-	<h:form>
-	
-#{msg.id} :	<h:inputText id="IdId" value="#{userBean.user.id_user}"
-			required="true" label="Nom">
-		</h:inputText>
-		<h:message for="nomId" style="color:red"></h:message>
-		<br />
-		<br />
-	
-#{msg.lastName} :	<h:inputText id="nomId" value="#{userBean.user.nom}"
-			required="true" label="Nom">
-		</h:inputText>
-		<h:message for="nomId" style="color:red"></h:message>
-		<br />
-		<br />
-#{msg.firstName} :	<h:inputText id="prenomId"
-			value="#{userBean.user.prenom}" required="true" label="Prenom">
-		</h:inputText>
-		<h:message for="prenomId" style="color:red"></h:message>
-		<br />
-		<br />
-		
-#{msg.mail} :	<h:inputText id="mailId" value="#{userBean.user.mail}"
-			required="true" label="Mail">
-			<f:validator validatorId="validatorMail"></f:validator>
-		</h:inputText>
-		<h:message for="mailId" style="color:red"></h:message>
-		<br />
-		<br />
-		
-#{msg.password} :	<h:inputText id="passwordId"
-			value="#{userBean.user.password}" required="true" label="Password">
-		</h:inputText>
-		<h:message for="passwordId" style="color:red"></h:message>
-		<br />
-		<br />
+			<h:panelGrid columns="3">
 
-		<h:commandButton action="#{userBean.updateUser}"
-			value="#{msg.updateUser}"></h:commandButton>
-	</h:form>
+#{msg.id} : <h:inputText id="ID" value="#{userMB.user.id_user}"
+					label="ID" required="true">
+				</h:inputText>
+				<h:message for="ID" style="color:red"></h:message>
+				<br />
+				<h:commandButton value="OK" action="#{userMB.getById}"></h:commandButton>
+			</h:panelGrid>
+
+		</h:form>
+
+		<h:form>
+			<h:panelGrid columns="3">
+
+#{msg.lastName} :
+<h:inputText id="nom" value="#{userMB.user.nom}"
+					label="#{userMB.user.nom}" required="true">
+				</h:inputText>
+				<h:message for="nom" style="color:red"></h:message>
+
+#{msg.firstName} :
+<h:inputText id="prenom" value="#{userMB.user.prenom}"
+					label="#{userMB.user.prenom}" required="true">
+				</h:inputText>
+				<h:message for="prenom" style="color:red"></h:message>
+
+
+#{msg.dN} :
+<h:inputText id="dateN" value="#{userMB.user.dN}"
+					label="#{userMB.user.dN}" required="true">
+				</h:inputText>
+				<h:message for="dateN" style="color:red"></h:message>
+
+
+				<br />
+				<h:commandButton value="Modifier" action="#{userMB.modifier}"></h:commandButton>
+			</h:panelGrid>
+
+		</h:form>
+
+	</div>
+
 
 </h:body>
 </html>

@@ -45,10 +45,7 @@
 		</p:column>
 
 		<p:column headerText="Date de Naissance">
-			<h:form>
-				<p:outputLabel for="birthDate" value="Date de naissance :" />
-				<p:calendar id="birthDate" value="#{user.dN}" />
-			</h:form>
+			<h:outputText value="#{user.dN}"/>
 		</p:column>
 
 
