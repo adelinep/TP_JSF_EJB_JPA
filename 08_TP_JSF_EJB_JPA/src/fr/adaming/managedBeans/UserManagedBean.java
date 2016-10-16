@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -39,12 +38,11 @@ public class UserManagedBean implements Serializable{
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 
 		agent=(Agent) session.getAttribute("agent");
-		user = new User();
 	}
 
 	// Constructeur vide -----------------------------------------------------------------------------------------------------------
 	public UserManagedBean() {
-		super();
+		this.user = new User();
 	}
 
 	// Getters & Setters ------------------------------------------------------------------------------------------------------------
@@ -102,7 +100,7 @@ public class UserManagedBean implements Serializable{
 	public String getUserById(){
 		userList = userService.getUserByAgentService(agent);
 		session.setAttribute("listUser", userList);
-		userService.getUserByIdService(user.getId_user());
+		this.user = userService.getUserByIdService(user.getId_user());
 		return "#";
 
 	}

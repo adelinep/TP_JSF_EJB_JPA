@@ -13,30 +13,33 @@
 
 <h:body>
 
-			<h:form>
-				<h:outputText value="#{msg.lang}"></h:outputText>
-				<h:selectOneMenu value="#{interBean.localCode}" onchange="submit()"
-					valueChangeListener="#{interBean.changerLocalite}">
-					<f:selectItems value="#{interBean.localites}" />
-				</h:selectOneMenu>
-			</h:form>
+	<h:form>
+		<h:outputText value="#{msg.lang}"></h:outputText>
+		<h:selectOneMenu value="#{interBean.localCode}" onchange="submit()"
+			valueChangeListener="#{interBean.changerLocalite}">
+			<f:selectItems value="#{interBean.localites}" />
+		</h:selectOneMenu>
+	</h:form>
 
 
 	<h2 style="text-align: center;">#{msg.authent}</h2>
 	<div align="center">
 		<h:form>
-		<h:panelGrid columns="3"></h:panelGrid>
-#{msg.mail} :	<h:inputText id="mailId" value="#{agentMB.mail}" required="true"
-				label="Mail">
-			</h:inputText>
-			<h:message for="mailId" style="color:red"></h:message>
-			<br />
-			<br />
-#{msg.password} : <h:inputSecret id="passwordId" value="#{agentMB.password}" required="true"/>
-			<h:message for="Password" style="color:red"></h:message>
-			<br />
+			<h:panelGrid columns="3">
+#{msg.mail} :	<h:inputText id="mailId" value="#{agentMB.mail}"
+					required="true" label="Mail">
+				</h:inputText>
+				<h:message for="mailId" style="color:red"></h:message>
+				<br />
+				<br />
+#{msg.password} : <h:inputSecret id="passwordId"
+					value="#{agentMB.password}" required="true" />
+				<h:message for="Password" style="color:red"></h:message>
+				<br />
+				<br/>
 
-			<h:commandButton action="#{agentMB.isExist}" value="#{msg.log_in}"></h:commandButton>
+				<h:commandButton action="#{agentMB.isExist}" value="#{msg.log_in}"></h:commandButton>
+			</h:panelGrid>
 		</h:form>
 	</div>
 </h:body>

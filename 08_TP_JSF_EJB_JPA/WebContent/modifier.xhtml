@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <f:view locale="#{interBean.local}"></f:view>
 <h:head>
@@ -53,9 +54,11 @@
 
 
 #{msg.dN} :
-<h:inputText id="dateN" value="#{userMB.user.dN}"
-					label="#{userMB.user.dN}" required="true">
-				</h:inputText>
+		<h:form>
+					<p:outputLabel for="birthDate" />
+					<p:calendar id="birthDate" value="#{userMB.user.dN}" />
+				</h:form>
+
 				<h:message for="dateN" style="color:red"></h:message>
 
 
