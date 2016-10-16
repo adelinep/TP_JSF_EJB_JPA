@@ -15,4 +15,20 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#erreurAuthentification.xhtml"
   PATH="/erreurAuthentification.xhtml" SHAPE="256,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modifier.xhtml" PATH="/modifier.xhtml"
+  SHAPE="32,273,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#modifier.xhtml:0" NAME="item"
+   PATH="/modifier.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="#::#modifier.xhtml" NAME="output"
+    PATH="/modifier.xhtml" TARGET="rules:#modifier.xhtml" TITLE="#" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#supprimer.xhtml" PATH="/supprimer.xhtml"
+  SHAPE="240,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#supprimer.xhtml:0" NAME="item"
+   PATH="/supprimer.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="#::#supprimer.xhtml" NAME="output"
+    PATH="/supprimer.xhtml" TARGET="rules:#supprimer.xhtml" TITLE="#" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

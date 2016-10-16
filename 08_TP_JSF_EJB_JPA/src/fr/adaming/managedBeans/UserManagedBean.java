@@ -99,6 +99,8 @@ public class UserManagedBean implements Serializable{
 
 
 	public String getUserById(){
+		userList = userService.getUserByAgentService(agent);
+		session.setAttribute("listUser", userList);
 		userService.getUserByIdService(user.getId_user());
 		return "#";
 

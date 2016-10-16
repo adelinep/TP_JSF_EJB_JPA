@@ -45,7 +45,6 @@ public class AgentManagedBean implements Serializable{
 	 * 
 	 */
 	public AgentManagedBean() {
-		super();
 	}
 
 	// Getters & Setters -------------------------------------------------------------------------------------------
@@ -85,6 +84,7 @@ public class AgentManagedBean implements Serializable{
 			
 			session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 			session.setAttribute("agent", agent);
+			listeUser = userService.getUserByAgentService(agent);
 			return "sucess";
 		}
 		else {

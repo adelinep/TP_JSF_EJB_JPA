@@ -22,46 +22,20 @@
 		paginator="true"
 		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 		rowsPerPageTemplate="5,10,15">
-		<p:column headerText="Id">
+		<p:column headerText="#{msg.id}">
 			<h:outputText value="#{user.id_user}" />
 		</p:column>
 
-		<p:column headerText="Nom">
-			<h:form>
-				<h:outputLabel for="ajax" />
-				<p:inplace id="ajax" editor="true">
-					<p:inputText value="#{user.nom}" required="true" label="text" />
-				</p:inplace>
-			</h:form>
+		<p:column headerText="#{msg.lastName}">
+			<h:outputText value="#{user.nom}" />
 		</p:column>
 
-		<p:column headerText="Prénom">
-			<h:form>
-				<h:outputLabel for="ajax" />
-				<p:inplace id="ajax" editor="true">
-					<p:inputText value="#{user.prenom}" required="true" label="text" />
-				</p:inplace>
-			</h:form>
+		<p:column headerText="#{msg.firstName}">
+			<h:outputText value="#{user.prenom}" />
 		</p:column>
 
-		<p:column headerText="Date de Naissance">
-			<h:outputText value="#{user.dN}"/>
-		</p:column>
-
-
-		<p:column headerText="Supprimer/Modifier" style="width:100px">
-			<h:form>
-				<p:commandButton update="@all" title="Modifier"
-					action="#{userMB.modifier}" icon="ui-icon-pencil">
-					<f:setPropertyActionListener value="#{user}"
-						target="#{userMB.user}"></f:setPropertyActionListener>
-				</p:commandButton>
-				<p:commandButton update="@all" title="Supprimer"
-					icon="ui-icon-trash" action="#{userMB.supprimer}">
-					<f:setPropertyActionListener value="#{user}"
-						target="#{userMB.user}" />
-				</p:commandButton>
-			</h:form>
+		<p:column headerText="#{msg.dN}">
+			<h:outputText value="#{user.dN}" />
 		</p:column>
 	</p:dataTable>
 </h:body>

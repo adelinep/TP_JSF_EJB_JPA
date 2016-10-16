@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
- <navigation-rule>
-  <from-view-id>/index.xhtml</from-view-id>
-  <navigation-case>
-   <from-outcome>sucess</from-outcome>
-   <to-view-id>/accueil.xhtml</to-view-id>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>fail</from-outcome>
-   <to-view-id>/erreurAuthentification.xhtml</to-view-id>
-  </navigation-case>
- </navigation-rule>
- <validator>
-  <validator-id>validatorPers</validator-id>
-  <validator-class>fr.adaming.validator.ValidatorMail</validator-class>
- </validator>
- 
- 	<application>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>sucess</from-outcome>
+			<to-view-id>/accueil.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>fail</from-outcome>
+			<to-view-id>/erreurAuthentification.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/modifier.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>#</from-outcome>
+			<to-view-id>/modifier.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>/supprimer.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>#</from-outcome>
+			<to-view-id>/supprimer.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<validator>
+		<validator-id>validatorPers</validator-id>
+		<validator-class>fr.adaming.validator.ValidatorMail</validator-class>
+	</validator>
+
+
+
+	<application>
 		<resource-bundle>
 			<base-name>messages</base-name>
 			<var>msg</var>
@@ -29,5 +50,5 @@
 		</locale-config>
 	</application>
 
- 
+
 </faces-config>
